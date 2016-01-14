@@ -44,8 +44,7 @@
 (defn output-csv [records filename]
   (with-open [wtr (to-writer filename)]
     (doseq [record records]
-      (let [col (first record)]
-        (.write wtr col))
+      (.write wtr (first record))
       (doseq [column (rest record)]
         (.write wtr ",")
         (.write wtr column))
