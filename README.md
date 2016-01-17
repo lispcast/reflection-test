@@ -3,6 +3,8 @@
 Some simple code to play with eliminating reflection in the Clojure
 compiler.
 
+Please checkout the `START` tag for the "before" code.
+
 This code was used in the *Warn on Reflection* lesson in the
 [*PurelyFunctional.tv Online Mentoring*][ment] program.
 
