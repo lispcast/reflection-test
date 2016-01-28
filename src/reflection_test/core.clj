@@ -1,11 +1,13 @@
 (ns reflection-test.core)
 
-(defn ^java.io.BufferedReader to-reader [f]
+(defn to-reader ^java.io.BufferedReader [f]
   (cond
     (string? f)
-    (recur (java.io.File. ^String f))
+    (let [^String s f]
+      (recur (java.io.File. s)))
     (instance? java.net.URL f)
-    (recur (.getFile ^java.net.URL f))
+    (let [^java.net.URL u f]
+      (recur (.getFile u)))
     (instance? java.io.File f)
     (let [^java.io.File f f]
       (recur (java.io.FileReader. f)))
@@ -14,7 +16,7 @@
     :else
     (throw (ex-info "I don't know what to do with this." {:value f}))))
 
-(defn ^java.io.BufferedWriter to-writer [f]
+(defn to-writer ^java.io.BufferedWriter [f]
   (cond
     (string? f)
     (let [^String s f]
@@ -30,7 +32,7 @@
     :else
     (throw (ex-info "I don't know what to do with this." {:value f}))))
 
-(defn ^String my-slurp [f]
+(defn my-slurp ^String [f]
   (with-open [rdr (to-reader f)]
     (let [out (StringBuffer.)]
       (loop []
