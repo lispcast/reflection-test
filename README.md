@@ -3,9 +3,9 @@
 Some simple code to play with eliminating reflection in the Clojure
 compiler.
 
-Please checkout the `START` tag for the "before" code.
+Please checkout the `START` branch for the "before" code.
 
-This code was used in the *Warn on Reflection* lesson in the
+This code was used in the [*Warn on Reflection*](https://purelyfunctional.tv/lesson/using-warn-on-reflection-to-make-your-code-faster/) lesson in the
 [*PurelyFunctional.tv Online Mentoring*][ment] program.
 
 [ment]: http://www.purelyfunctional.tv/mentoring
